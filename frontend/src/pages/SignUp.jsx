@@ -1,4 +1,4 @@
-import React ,{ useState } from 'react'
+import React ,{ useState ,useSelector} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { serverUrl } from '../main.jsx'
 import {useDispatch} from 'react-redux'
@@ -13,6 +13,8 @@ const SignUp = () => {
   let [loading,setLoading]=useState(false);
   let [err,setErr]=useState("");
   let dispatch=useDispatch()
+  let {userData}=useSelector(state=>state.user)
+  console.log(userData)
   const handleSignUp=async(e)=>{
     e.preventDefault();
     setLoading(true);
