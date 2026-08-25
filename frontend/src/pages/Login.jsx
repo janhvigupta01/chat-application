@@ -1,8 +1,9 @@
-import React,{ useState }  from 'react'
+import React,{ useState}  from 'react'
 import { useNavigate } from 'react-router-dom'
 import { serverUrl } from '../main.jsx'
 import axios from 'axios'
-import {useDispatch} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
+import { setUserData } from '../redux/userSlice.js'
 const Login = () => {
   let navigate = useNavigate()
   let [show,setShow]=useState(false);
@@ -11,8 +12,7 @@ const Login = () => {
   let [loading,setLoading]=useState(false);
   let [err,setErr]=useState("");
   let dispatch=useDispatch()
-let {userData}=useSelector(state=>state.user)
-console.log(userData)
+
   const handleLogin=async(e)=>{
     e.preventDefault();
     setLoading(true);
